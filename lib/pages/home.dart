@@ -13,6 +13,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
+
+  List<Widget> _paginas = [
+    Productos(),
+    EditarProducto(),
+    Carrito(),
+  ];
+
   Widget _productos = Productos();
   Widget _edit = EditarProducto();
   Widget _car = Carrito();
@@ -24,7 +31,7 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         title: Text('Productos'),
       ), */
-      body: getBody(),
+      body: _paginas[_currentIndex], //getBody(),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
         currentIndex: _currentIndex,
